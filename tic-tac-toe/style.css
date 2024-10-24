@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #2c5e1a;
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #2c5e1a;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ... rest of your existing CSS ... */
+
+#player-name-modal .modal-content {
+    max-width: 300px;
+}
+
+#player-name-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#player-name-inputs input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+#start-game-button {
+    width: 100%;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#player-name-inputs input.error {
+    border-color: red;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+#cancel-game-button {
+    background-color: #f44336;
+}
+
+#cancel-game-button:hover {
+    background-color: #d32f2f;
+}
+
+.winning-cell {
+    background-color: rgba(144, 238, 144, 0.7);
+    transition: background-color 0.3s ease;
+}
+
+#player-display {
+    margin-bottom: 15px;
+}
+
+#player-display div:first-child {
+    margin-bottom: 5px;
+}
+
+#scoreboard {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#player-name-modal .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#player-name-modal .modal-buttons button {
+    width: 45%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 0;
+}
+
+#start-game-button, #cancel-game-button {
+    width: auto;
+    height: auto;
+    font-size: 16px;
+}
+
+/* Styles for the Choose Your Symbol modal */
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+/* Adjust the modal content size */
+.modal-content {
+    max-width: 300px;
+    padding: 20px;
+}
+
+.game-controls {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.game-controls button {
+    margin: 5px;
+    display: inline-block;
+}
+
+/* Remove any flex properties if they exist */
+.game-controls {
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: auto;
+}
+
+@media (max-width: 500px) {
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+    }
+}
+
+/* Ensure the container has enough width */
+.container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Center the player display and scoreboard */
+#player-display, #scoreboard {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Center the game controls */
+.game-controls {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.win-frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #2c5e1a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.win-message {
+  font-family: 'Pacifico', cursive;
+  color: #2c5e1a;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.party-popper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #4CAF50;
+  top: -10px;
+  left: calc(var(--x) * 100%);
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.suggested-move {
+  background-color: rgba(255, 255, 153, 0.7);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#help-modal .modal-content {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+#help-slides {
+    text-align: center;
+}
+
+.slide {
+    margin-bottom: 20px;
+}
+
+#help-slides button {
+    position: absolute;
+    bottom: 10px;
+}
+
+#help-slides button:first-of-type {
+    left: 10px;
+}
+
+#help-slides button:last-of-type {
+    right: 10px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+        <div id="game-setup" class="game-setup">
+            <div class="game-options">
+                <button id="two-players">2 Players</button>
+                <button id="player-vs-computer">Player vs Computer</button>
+            </div>
+        </div>
+        <div id="game-area" class="game-area" style="display: none;">
+            <div id="player-display"></div>
+            <div id="scoreboard"></div>
+            <div id="game-board" class="game-board">
+                <!-- Game cells will be added dynamically -->
+            </div>
+            <div class="game-controls">
+                <button id="reset-game">Reset Game</button>
+                <button id="help-button">How to Play</button>
+                <button id="suggest-move">Suggest Move</button>
+                <button id="home-button" class="home-button" title="Home">🏠</button>
+            </div>
+        </div>
+    </div>
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="help-slides"></div>
+        </div>
+    </div>
+    <!-- Add this modal after the help-modal div -->
+    <div id="player-name-modal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Player Names</h2>
+            <div id="player-name-inputs"></div>
+            <div class="modal-buttons">
+                <button id="start-game-button">Start Game</button>
+                <button id="cancel-game-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
